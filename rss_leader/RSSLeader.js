@@ -1,25 +1,25 @@
 jQuery(function($){
-    // ul—v‘f‚ğ“ü‚ê‚Ä‚¨‚­
+    // ulè¦ç´ ã‚’å…¥ã‚Œã¦ãŠã
     var rssBlock = $('#rss').append('<ul/>');
-    // RSS‚Ìæ“¾
+    // RSSã®å–å¾—
     $.ajax({
-        // “Ç‚İ‚Şƒf[ƒ^‚ÍXML
+        // èª­ã¿è¾¼ã‚€ãƒ‡ãƒ¼ã‚¿ã¯XML
         dataType: 'xml',
-        // “Ç‚İ‚İ‚½‚¢ƒf[ƒ^‚ÌURL"http://blog.livedoor.jp/itsoku/index.rdf"
+        // èª­ã¿è¾¼ã¿ãƒ‡ãƒ¼ã‚¿ã®URL"http://blog.livedoor.jp/itsoku/index.rdf"
         url: 'sample.xml',
-        // Ajax‚Ì’ÊM‚ª¬Œ÷‚µ‚½ê‡
+        // Ajaxã®é€šä¿¡ãŒæˆåŠŸã—ãŸå ´åˆ
         success: function(data) {
             
-            // RSS‚Éitem—v‘f‚ª‚Ğ‚Æ‚Â‚à‚È‚©‚Á‚½ê‡
+            // RSSã«itemè¦ç´ ãŒã²ã¨ã¤ã‚‚ãªã‹ã£ãŸå ´åˆ
             if( $('item', data).length<1 ) {
-                $('ul', rssBlock).append('<li>‹L–‚ª‚ ‚è‚Ü‚¹‚ñB</li>');
+                $('ul', rssBlock).append('<li>è¨˜äº‹ãŒã‚ã‚Šã¾ã›ã‚“ã€‚</li>');
                 return false;
             }
             
-            // item–ˆ‚É¥¥¥
+            // itemæ¯ã«ï½¥ï½¥ï½¥
             $('item', data).each(function() {
                 
-                // item‚Ì’†‚Ìlink‚Ætitle‚ğ”²‚«o‚µ‚Äul‚É’Ç‰Á‚·‚é
+                // itemã®ä¸­ã®linkã¨titleã‚’æŠœãå‡ºã—ã¦ulã«è¿½åŠ ã™ã‚‹
                 var item = $(this);
                 $('ul', rssBlock).append(
                     $('<li/>').append(
@@ -32,7 +32,7 @@ jQuery(function($){
             });
         },
         error: function(xml){
-            $('#rss').append('<p>“Ç‚İ‚İ¸”s<\/p>');
+            $('#rss').append('<p>èª­ã¿è¾¼ã¿å¤±æ•—<\/p>');
         }
     });
 });
